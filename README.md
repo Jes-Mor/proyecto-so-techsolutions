@@ -18,3 +18,11 @@ Este repositorio contiene los scripts de automatización para el despliegue de u
    ```bash
    chmod +x provision.sh
    chmod +x monitoreo.sh
+
+2. Ejecuta el aprovisionamiento con privilegios de administrador:
+   ```bash
+   sudo ./provision.sh
+
+3. Puedes ejecutar el script manualmente o añadirlo a cron para automatización:
+   ```bash
+   ./monitoreo.sh
