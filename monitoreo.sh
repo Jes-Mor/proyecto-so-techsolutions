@@ -8,9 +8,9 @@ FECHA=$(date '+%Y-%m-%d %H:%M:%S')
  
 # Recolección de métricas del sistema
 # CPU: 'top -bn1' ejecuta el comando una sola vez, 'grep' y 'awk' extraen el porcentaje.
-CPU=$(top -bn1 | grep 'Cpu(s)' | awk '{print $2}' | cut -d'%' -f1) 
+CPU=$(LC_ALL=C top -bn1 | grep 'Cpu(s)' | awk '{print $2}' | cut -d'%' -f1) 
 # RAM: 'free -m' muestra memoria en MB, 'awk' realiza el cálculo porcentual.
-RAM=$(free -m | awk 'NR==2{printf "%.1f%%", $3*100/$2}') 
+RAM=$(LC_ALL=C free -m | awk 'NR==2{printf "%.1f", $3*100/$2}') 
 # Disco: 'df -h /' analiza el uso de espacio en la partición raíz.
 DISCO=$(df -h / | awk 'NR==2{print $5}') 
 # Red: lee las estadísticas de la interfaz 'enp0s3' directamente del kernel.
